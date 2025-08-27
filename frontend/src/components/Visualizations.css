@@ -1,0 +1,130 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;700&display=swap");
+
+
+
+.visualizations-section {
+  padding: 60px 20px;
+  background: blue;
+}
+
+.visualizations-section h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  color: #ffffff;
+}
+
+.visualizations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.viz-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  
+  background:rgb(0, 0, 255);
+  padding: 25px;
+  height: 500px;
+  border-radius: 1px;
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.viz-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.viz-image img {
+  width: 600px;
+  height: 600px;
+  max-width: 800px;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.viz-text {
+  flex: 1;
+  font-family:"Poppins" ,bold;
+}
+
+.viz-text h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #ff7700;
+}
+
+.viz-text p {
+  font-size: 1.1rem;
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.viz-text ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.viz-text ul li {
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  color: hwb(0 100% 0%);
+  margin-bottom: 6px;
+  list-style: none;
+  font-weight: bold;
+  position: relative;
+  padding-left: 15px;
+}
+
+
+
+/* ==================== Responsive ==================== */
+@media screen and (max-width: 900px) {
+  .viz-card,
+  .viz-card.reverse {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+  }
+
+  .viz-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .viz-text {
+    padding: 10px;
+  }
+}.summary-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  flex: 1;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.summary-card h3 {
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 8px;
+}
+
+.summary-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4809f4;
+}

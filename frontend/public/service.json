@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Car Rental",
+    "description": "Book your favorite car with flexible rental options.",
+    "price": "₹1500/day",
+    "image": "/images/car-rental.jpg"
+  },
+  {
+    "id": 2,
+    "title": "File Upload & Analysis",
+    "description": "Upload Excel files for instant data insights and reports.",
+    "price": "Free for 2 uploads, Premium after",
+    "image": "/images/file-upload.jpg"
+  },
+  {
+    "id": 3,
+    "title": "AI Assistance",
+    "description": "Get instant AI-powered support for your tasks and queries.",
+    "price": "₹499/month",
+    "image": "/images/ai-assist.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Secure Payments",
+    "description": "Pay safely with multiple options: UPI, Netbanking, and Cards.",
+    "price": "Transaction charges apply",
+    "image": "/images/payment.jpg"
+  }
+]

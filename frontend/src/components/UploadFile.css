@@ -1,0 +1,209 @@
+/* General */
+.upload-container {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #033dfa, #0701ba);
+  font-family: "Segoe UI", Roboto, sans-serif;
+  
+}
+
+/* Hero Section */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: url('src/assets/donut.png') no-repeat center center;
+ 
+  margin-bottom: 3rem;
+  align-items: center;
+  height: 500px;
+  padding: 2rem;
+}
+
+
+/* Instructions */
+.instructions {
+  background: rgb(1, 22, 255);
+  border-radius: px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.instructions h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.instructions p {
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+/* File Drop */
+.file-drop-area {
+  
+  border-radius: px;
+  padding: 2rem;
+ height: 260px;
+  text-align: center;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.file-drop-area p {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #0330e1;
+}
+.file-drop-area.drag-active {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: px;
+  border: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn.primary {
+  background: #0058e4;
+  color: white;
+}
+.btn.success {
+  background: #10b981;
+  color: white;
+}
+.btn.danger {
+  background: #ef4444;
+  color: white;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Error */
+.error {
+  margin-top: 1rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 0.75rem;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 0.9rem;
+}
+
+/* Uploaded Files */
+.uploads {
+  background: rgb(0, 4, 255);
+  padding: 2rem;
+  
+  box-shadow: 0 4px 8px rgba(7, 85, 241, 0.05);
+}
+.uploads h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  justify-content: center;
+  margin-bottom: 10rem;
+  align-items: center;
+  display: flex;
+  color: #fcfcfc;
+}
+.uploads-grid {
+  box-sizing: border-box;
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  justify-content: center; /* centers grid items */
+}
+
+.file-card {
+  background: #041ca7;
+  border: 1px solid #016fff;
+  border-radius: px;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  max-width: 320px; /* prevents overflow */
+  width: 100%;      /* shrink gracefully */
+}
+
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+ 
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.file-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+
+
+/* Responsive Layouts */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr; /* stack instructions + drop zone */
+    height: auto;
+    text-align: center;
+  }
+
+  .instructions {
+    margin-bottom: 1.5rem;
+  }
+
+  .file-drop-area {
+    height: auto;
+    min-height: 180px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .upload-container {
+    padding: 1rem;
+  }
+
+  .hero {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .instructions {
+    padding: 1.25rem;
+  }
+
+  .btn {
+    width: 100%; /* buttons full width on mobile */
+  }
+
+  .uploads {
+    padding: 1rem;
+  }
+
+  .uploads-grid {
+    grid-template-columns: 1fr; /* one file card per row */
+  }
+
+  .file-card {
+    padding: 1rem;
+  }
+}
