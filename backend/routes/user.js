@@ -11,7 +11,7 @@ router.get("/uploads", verifyToken, async (req, res) => {
     res.json(uploads);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Their is server Error" });
   }
 });
 
