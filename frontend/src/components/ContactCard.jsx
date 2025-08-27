@@ -4,7 +4,7 @@ const ContactCard = () => {
   const [message, setMessage] = useState("");
 
   const handleSend = () => {
-    setMessage("✅ Thanks for contacting us!");
+    setMessage("Thanks for contacting us!");
     setTimeout(() => setMessage(""), 3000); // Hide after 3 seconds
   };
 

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 const Payment = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Payment = () => {
 
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/me", {
+        const res = await axios.get(`${apiUrl}/api/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(res.data);
@@ -42,7 +42,7 @@ const Payment = () => {
 
       // Call backend to save plan
       const res = await axios.post(
-        "http://localhost:5000/api/buy-plan",
+        `${apiUrl}/api/buy-plan`,
         {
           id: plan.id,
           name: plan.name,

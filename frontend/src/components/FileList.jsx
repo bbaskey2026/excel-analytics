@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 const FileList = () => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ const FileList = () => {
           return;
         }
 
-        const res = await axios.get("http://localhost:5000/api/list", {
+        const res = await axios.get(`${apiUrl}/api/list`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

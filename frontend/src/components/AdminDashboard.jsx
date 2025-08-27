@@ -8,7 +8,7 @@ import {
   FiTrash2,
   FiSlash,
 } from "react-icons/fi";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
@@ -208,13 +208,13 @@ const AdminDashboard = () => {
       setLoading(true);
       try {
         const [usersRes, filesRes, analyticsRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/admin/users", {
+          axios.get(`${apiUrl}/api/admin/users`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://localhost:5000/api/admin/files", {
+          axios.get(`${apiUrl}/api/admin/files`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://localhost:5000/api/admin/analytics", {
+          axios.get(`${apiUrl}/api/admin/analytics`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -240,7 +240,7 @@ const AdminDashboard = () => {
     }
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/admin/user/${userId}`, {
+      await axios.delete(`${apiUrl}/api/admin/user/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAnalytics(analytics.filter((u) => u.id !== userId));
@@ -259,7 +259,7 @@ const AdminDashboard = () => {
     }
     try {
       await axios.patch(
-        `http://localhost:5000/api/admin/user/block/${userId}`,
+        `${apiUrl}/api/admin/user/block/${userId}`,
         { block: !currentStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FiUpload, FiFileText, FiTrendingUp, FiTrash2 } from "react-icons/fi";
 import "./UploadFile.css";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const UploadFile = () => {
   const [files, setFiles] = useState([]);
@@ -22,7 +22,7 @@ const UploadFile = () => {
     if (!token) return;
     const fetchFiles = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/list", {
+        const res = await axios.get(`${apiUrl}/api/list`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUploadedFiles(res.data);
@@ -75,13 +75,13 @@ const UploadFile = () => {
     setError("");
 
     try {
-      await axios.post("http://localhost:5000/api/upload", formData, {
+      await axios.post(`${apiUrl}/api/upload`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       setTimeout(() => setIsModalOpen(true), 10000);
 
-      const res = await axios.get("http://localhost:5000/api/list", {
+      const res = await axios.get(`${apiUrl}/api/list`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -100,7 +100,7 @@ const UploadFile = () => {
     if (!window.confirm("Are you sure you want to delete this file?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/delete/${fileId}`, {
+      await axios.delete(`${apiUrl}/api/delete/${fileId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUploadedFiles(uploadedFiles.filter((file) => file._id !== fileId));
@@ -132,8 +132,8 @@ const UploadFile = () => {
       }
 
       const endpoint = file._id
-        ? `http://localhost:5000/api/analyze/${file._id}`
-        : `http://localhost:5000/api/analyze`;
+        ? `${apiUrl}/api/analyze/${file._id}`
+        : `${apiUrl}/api/analyze`;
 
       const res = await axios.post(endpoint, formData, {
         headers: {

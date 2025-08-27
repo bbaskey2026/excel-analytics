@@ -9,7 +9,7 @@ import {
   FiMail,
   FiLogOut,
 } from "react-icons/fi";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 import {
   Settings,       
  
@@ -33,7 +33,7 @@ const UserDashboard = () => {
   useEffect(() => {
     const fetchUploads = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/list", {
+        const res = await axios.get(`${apiUrl}/api/list`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUploads(res.data);
@@ -50,7 +50,7 @@ const UserDashboard = () => {
     setAnalyzingId(file._id);
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/analyze/${file._id}`,
+        `${apiUrl}/api/analyze/${file._id}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -70,7 +70,7 @@ const UserDashboard = () => {
     if (!window.confirm("Are you sure you want to delete this file?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/delete/${fileId}`, {
+      await axios.delete(`${apiUrl}/api/delete/${fileId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUploads(uploads.filter((file) => file._id !== fileId));

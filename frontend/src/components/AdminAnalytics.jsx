@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FiFile, FiDatabase, FiUser, FiClock, FiTrash2, FiSlash } from "react-icons/fi";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 const AdminAnalytics = () => {
   const [analytics, setAnalytics] = useState([]);
   const token = localStorage.getItem("token");
@@ -12,7 +12,7 @@ const AdminAnalytics = () => {
 
   const fetchAnalytics = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/admin/analytics", {
+      const res = await axios.get(`${apiUrl}/api/admin/analytics`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAnalytics(res.data);
@@ -32,7 +32,7 @@ const AdminAnalytics = () => {
   const handleDelete = async (userId) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/admin/user/${userId}`, {
+      await axios.delete(`${apiUrl}/api/admin/user/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAnalytics(analytics.filter((u) => u.id !== userId));
@@ -46,7 +46,7 @@ const AdminAnalytics = () => {
   const handleBlock = async (userId, currentStatus) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/admin/user/block/${userId}`,
+        `${apiUrl}/api/admin/user/block/${userId}`,
         { block: !currentStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

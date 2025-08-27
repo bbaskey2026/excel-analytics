@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import axios from "axios";
 import "./Footer.css";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -25,7 +25,7 @@ const messages = [
 
     try {
       // Call backend API to save subscription
-      await axios.post("http://localhost:5000/api/subscriber", { email });
+      await axios.post(`${apiUrl}/api/subscriber`, { email });
 
       setMessage(randomMessage);
       setShowModal(true);
